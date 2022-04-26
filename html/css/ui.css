@@ -36,11 +36,10 @@ body {
 }
 
 .bar {
-	width: calc(50.5% - 116.2px - 116.2px);
+	width: calc(50.5% - 116.8px - 116.8px);
 	height: 25.5px;
 	float: left;
 	border: 1px solid rgba(255,255,255,0.1)!important; 
-    border-radius: 15px;
     /*background-color: rgba(235, 235, 235, 0.05);  0,02 */
     background-color: rgba(0,0,0,0.35);
 	margin-right: 3px;
@@ -49,13 +48,13 @@ body {
 }
 .bar:hover {
     background-color: rgba(0,0,0,0.7);
-     transition: 0.4s; 
+/*     transition: 0.4s; */
     opacity: 1;
 }
 
 /*icon*/
 .barIcon {
-	width: calc(50.5% - 116.2px - 116.2px);
+	width: calc(50.5% - 116.8px - 116.8px);
 	height: 15.5px;
 	padding-top: 5px;
 	position: absolute;
@@ -70,8 +69,8 @@ body {
 
 #notificatie {
     position: absolute;
-    top: 50%;
-    right:93%;
+    top: 70%;
+    left:48.5%;
 }
 
 @font-face {
@@ -91,7 +90,6 @@ body {
     z-index: 0;
     background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(48, 48, 48, 0.349));
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
 }
 
 .inventory {
@@ -143,8 +141,6 @@ body {
 #varWeight {
     width: calc(100.5% - 227.56px - 227.56px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
 }
 
 #varWeight > .barIcon {
@@ -162,8 +158,6 @@ body {
 	bottom: 0;
     z-index: 129;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
 }
 
 #controls svg,
@@ -176,8 +170,6 @@ body {
     height: 100%;
     fill: transparent;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
 }
 
 #controls svg rect{
@@ -189,8 +181,6 @@ body {
     stroke-dasharray: 1800;
     stroke-dashoffset: 1800;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
 }
 
 #controls:hover svg rect{
@@ -218,10 +208,8 @@ body {
 #count {
     border: none;
     outline: none;
-    font-size: 12px;
+    font-size: 18px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
 }
 
 input::-webkit-outer-spin-button,
@@ -238,34 +226,29 @@ input[type=number] {
     float: left;
     width: 119px;
     height: 100px;
-    border-radius: 2px 2px 0px 0px;
-    background-color: #283c528e;
+    background-color: rgba(53, 53, 53, 0.2);
     margin-left: 5px;
     position: relative;
     margin-bottom:45px;
-    transition: 0.2s;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .slot:hover {
-    background: #183555c0; 
+    background: rgba(18, 18, 18, 0.5); 
     box-shadow: inset 0 0 15px rgba(18, 18, 18, 0.05);
 }
-
 .slotFast {
     float: left;
     width: 119px;
     height: 100px;
-    border-radius: 2px 2px 0px 0px;
-    background-color:#283c528e;
+    background-color:rgba(53, 53, 53, 0.2);
     margin-left: 5px;
     position: relative;
     margin-bottom:45px;
-    transition: 0.2s;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .slotFast:hover {
-    background: #183555c0; 
+    background: rgba(18, 18, 18, 0.05);
     box-shadow: inset 0 0 15px rgba(18, 18, 18, 0.05);
 }
 
@@ -282,10 +265,10 @@ input[type=number] {
 .item-name {
 	width: 120px;
 	position: absolute;
-    bottom: -17.4px;
+    bottom: -25px;
     text-align: center;
-    padding-top: 1px;
-    padding-bottom: -0.5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     min-height: 15px;
     z-index: 500;
     font-size: 9px;
@@ -293,8 +276,7 @@ input[type=number] {
     src: url('roboto.ttf');
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 0px 0px 2px 2px;
-	background-color: #5080409d; 
+	background-color: rgba(23, 93, 87, 0.5); 
 }
 
 
@@ -340,10 +322,8 @@ input[type=number] {
 .control {
     width: 150px;
     height: 40px;
-    border-radius: 5px;
-    background-color: #283c528e;
-    border: 1px solid rgba(16, 177, 177, 0.1);
-    box-shadow: 0px 3px #508040d7;
+    background-color: rgba(18, 18, 18, 0.397);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     margin: 10px;
     text-align: center;
     vertical-align: middle;
@@ -383,7 +363,7 @@ input[type=number] {
 
 #playerInventory::-webkit-scrollbar,
 #otherInventory::-webkit-scrollbar {
-    width: 2px;
+    width: 8px;
     background-color: rgba(0, 0, 0, 0.2);
     direction:ltr;
 }
@@ -679,9 +659,8 @@ src: url('roboto.ttf');
     background: rgba(18, 18, 18, 0.8);
  /*   -moz-box-shadow:    inset 0 0 15px #000000;
     -webkit-box-shadow: inset 0 0 15px #000000;*/
-    box-shadow:         inset 0 0 15px #104e498a;
+    box-shadow:         inset 0 0 15px #000000;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
     text-align: center;
 }
 

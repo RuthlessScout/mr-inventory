@@ -92,7 +92,8 @@ function openTrunk()
 				elseif checkVehicle == 2 then 
 					open, vehBone = 5, GetEntityBoneIndexByName(vehicle, 'boot') 
 				else
-					TriggerEvent("DoShortHudText", _U('no_veh_nearby'), 2)
+
+					exports['mr-notify']:Alert({style = 'info',message =  _U('no_veh_nearby')})
 					return 
 				end
 				local vehiclePos = GetWorldPositionOfEntityBone(vehFront, vehBone)
@@ -114,41 +115,41 @@ function openTrunk()
 							ESX.UI.Menu.CloseAll()
 							if globalplate ~= nil or globalplate ~= "" or globalplate ~= " " then
 								CloseToVehicle = true
-								exports['mythic_progbar']:Progress({
-									name = "openTrunk",
-									duration = 2000,
-									label = _U('opentrunk'),
-									useWhileDead = false,
-									canCancel = true,
-									controlDisables = {},
-									animation = nil,
-									prop = {},
-								}, function(status)
+
 									if not status then
 										if VehicleInFront() == lastVehicle then
+											local player = PlayerPedId(-1)
+											exports['mr-notify']:Alert({style = 'info',message = 'Отваряш багажника'})
+											TaskPlayAnim(player, "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0, -1.0, -1, 1, 0, false, false, false)
+											Citizen.Wait(1000)
+											ClearPedTasksImmediately(player)
 											OpenCoffreInventoryMenu(GetVehicleNumberPlateText(vehFront), Config.TrunkSize[class], myVeh)
 											if Config.CameraAnimationTrunk == true then
 												DeleteSkinCam()
 												loadCamera(0, 3)
 											end
 										else
-											TriggerEvent("DoShortHudText", _U('trunk_closed'), 2)
+
+											exports['mr-notify']:Alert({style = 'info',message = _U('trunk_closed')})
 										end
 									end
-								end)
+
 							end
 						else
-							TriggerEvent("DoShortHudText", _U('trunk_closed'), 2)
+
+							exports['mr-notify']:Alert({style = 'info',message =  _U('trunk_closed')})
 						end
 					end
 				else
-					TriggerEvent("DoShortHudText", _U('no_veh_nearby'), 2)
+
+					exports['mr-notify']:Alert({style = 'info',message =  _U('no_veh_nearby')})
 				end
 				lastOpen = true
 				GUI.Time = GetGameTimer()
 			end
 		else
-			TriggerEvent("DoShortHudText", _U('nacho_veh'), 2)
+
+			exports['mr-notify']:Alert({style = 'info',message =   _U('nacho_veh')})
 		end
 	end
 end
@@ -165,11 +166,12 @@ local count = 0
 --	end
 --end)
 
-RegisterKeyMapping('trunk', 'Багажник', 'keyboard', 'f3')
 
-RegisterCommand("trunk", function()
-			openTrunk()
-			GUI.Time = GetGameTimer()
+RegisterKey('keyboard', 'F3', function()
+	if not IsPlayerDead(PlayerId())  then
+		openTrunk()
+		GUI.Time = GetGameTimer()
+	end
 end)
 
 
