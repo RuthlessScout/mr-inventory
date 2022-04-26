@@ -46,7 +46,7 @@ AddEventHandler("onResourceStart", function()
 	lastChecked = GetGameTimer()
 end)
 
-RegisterKey('keyboard', 'TAB', 
+RegisterKey('keyboard', 'F2', 
 	function()
 	end,
 	-- on release
@@ -58,7 +58,7 @@ RegisterKey('keyboard', 'TAB',
 	end
 end)
 
-RegisterKey('keyboard', 'Z', function()
+RegisterKey('keyboard', 'TAB', function()
 	if not IsPlayerDead(PlayerId()) then
 		HudForceWeaponWheel(false)
 		showHotbar()
@@ -113,7 +113,7 @@ end)
 function lockinv()
 	Citizen.CreateThread(function()
 		while isInInventory do
-			Citizen.Wait(50)
+			Citizen.Wait(4)
 			DisableControlAction(0, 1, true) -- Disable pan
 			DisableControlAction(0, 2, true) -- Disable tilt
 			DisableControlAction(0, 24, true) -- Attack
